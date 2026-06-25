@@ -1,0 +1,146 @@
+.header {
+  background: var(--bg);
+  border-bottom: 0.5px solid var(--border);
+  padding: 14px 24px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 12px;
+}
+
+.tripName {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border: none;
+  background: none;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+}
+
+.tripName::placeholder {
+  color: var(--text-tertiary);
+}
+
+.tripName:focus {
+  color: var(--green);
+}
+
+.statusBadge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ok {
+  background: var(--green-light);
+  color: var(--green-text);
+}
+
+.loading {
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+}
+
+.error {
+  background: var(--red-light);
+  color: var(--red-text);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.metaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metaLabel {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+}
+
+.metaInput {
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 5px 9px;
+  font-size: 13px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+
+.metaInput:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 6px 14px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.statVal {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.statLbl {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.statDiv {
+  width: 0.5px;
+  height: 24px;
+  background: var(--border);
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 12px 16px 10px;
+  }
+  .stats {
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-around;
+  }
+}

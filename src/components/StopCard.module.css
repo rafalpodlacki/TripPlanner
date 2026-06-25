@@ -1,0 +1,249 @@
+.card {
+  position: relative;
+  display: flex;
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  overflow: visible;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+}
+
+.card.expanded {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.1), var(--shadow-sm);
+}
+
+.card.dragging {
+  opacity: 0.5;
+  box-shadow: var(--shadow-md);
+}
+
+.accent {
+  width: 4px;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  flex-shrink: 0;
+  min-height: 100%;
+}
+
+.body {
+  flex: 1;
+  padding: 12px 14px;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.nameWrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: text;
+  padding: 2px 4px;
+  margin: -2px -4px;
+  border-radius: 4px;
+  outline: none;
+  transition: background 0.1s;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.name:focus {
+  background: var(--bg-secondary);
+}
+
+.name:empty::before {
+  content: attr(data-placeholder);
+  color: var(--text-tertiary);
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.arrivalIcon {
+  font-size: 11px;
+}
+
+.arrivalTime {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.departTime {
+  color: var(--text-tertiary);
+}
+
+.tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.note {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  width: 28px;
+  height: 28px;
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+  line-height: 1;
+}
+
+.iconBtn:hover:not(:disabled) {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+.iconBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.iconBtn.active {
+  background: var(--green-light);
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.iconBtn.danger:hover {
+  background: var(--red-light);
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* Expanded fields */
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 0.5px solid var(--border);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldFull {
+  grid-column: span 2;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fieldInput {
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 7px 10px;
+  font-size: 13px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  width: 100%;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.fieldInput:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.1);
+}
+
+select.fieldInput {
+  cursor: pointer;
+}
+
+.textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.fieldHint {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+/* Add stop below button */
+.addBelow {
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  padding: 2px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  z-index: 2;
+  white-space: nowrap;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+
+.addBelow:hover {
+  background: var(--green-light);
+  color: var(--green);
+  border-color: var(--green);
+}
+
+@media (max-width: 560px) {
+  .fields {
+    grid-template-columns: 1fr;
+  }
+  .fieldFull {
+    grid-column: span 1;
+  }
+}

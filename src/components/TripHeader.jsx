@@ -1,4 +1,5 @@
 import { totalTripHours, fmtDuration } from '../utils.js'
+import { exportTripToPDF } from '../exportPDF.js'
 import styles from './TripHeader.module.css'
 
 const STATUS_LABELS = {
@@ -23,9 +24,17 @@ export default function TripHeader({ trip, status, onUpdateMeta }) {
           onChange={e => onUpdateMeta('name', e.target.value)}
           placeholder="Trip name…"
         />
-        <span className={`${styles.statusBadge} ${styles[s.cls]}`}>{s.text}</span>
+        <div className={styles.topRight}>
+          <span className={`${styles.statusBadge} ${styles[s.cls]}`}>{s.text}</span>
+          <button
+            className={styles.exportBtn}
+            onClick={() => exportTripToPDF(trip)}
+            title="Export to PDF"
+          >
+            ⬇ Export PDF
+          </button>
+        </div>
       </div>
-
       <div className={styles.row}>
         <div className={styles.metaGroup}>
           <label className={styles.metaLabel}>Start date</label>
@@ -45,7 +54,6 @@ export default function TripHeader({ trip, status, onUpdateMeta }) {
             onChange={e => onUpdateMeta('startTime', e.target.value)}
           />
         </div>
-
         <div className={styles.stats}>
           <div className={styles.stat}>
             <span className={styles.statVal}>{stops.length}</span>

@@ -144,3 +144,27 @@
     justify-content: space-around;
   }
 }
+
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exportBtn {
+  padding: 5px 14px;
+  background: #1D9E75;
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.exportBtn:hover {
+  background: #0F6E56;
+}

@@ -3,7 +3,7 @@ import { getFirestore } from 'firebase/firestore'
 import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBFLT2yICgBx6_rZ8OGzAlDRFSYXCyuC_E",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "trip-planner-9d29f.firebaseapp.com",
   projectId: "trip-planner-9d29f",
   storageBucket: "trip-planner-9d29f.firebasestorage.app",
